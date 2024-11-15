@@ -13,7 +13,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 Windows:
 
-Refer to [this page](https://rust-lang.github.io/rustup/installation/other.html])
+Refer to [this page](https://rust-lang.github.io/rustup/installation/other.html)
 
 ## Install Stable Toolchain
 
