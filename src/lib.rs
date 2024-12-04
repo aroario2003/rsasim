@@ -31,7 +31,7 @@ pub fn gen_keys(p: u128, q: u128) -> Vec<(u128, u128)> {
     assert!(is_prime(p) && is_prime(q));
     let n = p * q;
     let es_n = (p - 1) * (q - 1);
-    let mut e = 2;
+    let mut e = 3;
     let mut d = 1;
     for i in e.. {
         if gcd(i, es_n) == 1 {
@@ -48,10 +48,16 @@ pub fn gen_keys(p: u128, q: u128) -> Vec<(u128, u128)> {
 
     let mut stop = false;
     while e == d {
-        for i in e.. {
+        for i in e+2.. {
             if gcd(i, es_n) == 1 {
                 e = i;
                 stop = true;
+                for i in d+2.. {
+                    if (e * i) % es_n == 1 {
+                        d = i;
+                        break
+                    }
+                }
                 break
             }
         }
