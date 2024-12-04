@@ -46,12 +46,17 @@ pub fn gen_keys(p: u128, q: u128) -> Vec<(u128, u128)> {
         }
     }
 
+    let mut stop = false;
     while e == d {
         for i in e.. {
             if gcd(i, es_n) == 1 {
                 e = i;
+                stop = true;
                 break
             }
+        }
+        if stop {
+            break
         }
     }
     let keys = [(e, n), (d, n)].to_vec();
